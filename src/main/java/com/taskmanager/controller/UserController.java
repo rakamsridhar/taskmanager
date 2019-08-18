@@ -1,6 +1,5 @@
 package com.taskmanager.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,48 +14,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.taskmanager.model.Task;
-import com.taskmanager.service.TaskService;
+
+import com.taskmanager.model.User;
+
+import com.taskmanager.service.UserService;
 
 import io.swagger.annotations.Api;
 
-@Api(value="TMS", description="Task Management System")
+@Api(value="UMS", description="User Management System")
 @RestController
 @CrossOrigin
-@RequestMapping("/taskmanager")
-public class TaskController {
+@RequestMapping("/users")
+public class UserController {
 	
 
 	@Autowired
-	private TaskService taskService;
+	private UserService userService;
 	
 	
 	@GetMapping(value="/all", produces= {"application/json"})	
-	public ResponseEntity<List<Task>> getAllTasks() {
-			return ResponseEntity.ok().body(taskService.getTask());
+	public ResponseEntity<List<User>> getAllUsers() {
+			return ResponseEntity.ok().body(userService.getUser());
 	}
 	
-	@GetMapping("/{task_id}")	
-	public ResponseEntity<Task> getTaskById(@PathVariable int task_id) {		
-		return ResponseEntity.ok(taskService.getTaskById(task_id));
+	@GetMapping("/{user_id}")	
+	public ResponseEntity<User> getUserById(@PathVariable int user_id) {		
+		return ResponseEntity.ok(userService.getUserById(user_id));
 		 
 	}
 	
 	@PostMapping(value="/add", consumes= {"application/json"}, produces= {"application/json"})	
-	public ResponseEntity<Task> addTask(@RequestBody Task task) {
-		System.out.println("executing add task-------------------->");
-		return ResponseEntity.ok(taskService.addTask(task));		
+	public ResponseEntity<User> addUser(@RequestBody User user) {
+		System.out.println("executing add user-------------------->");
+		return ResponseEntity.ok(userService.addUser(user));		
 	}
 	
-	@DeleteMapping("/delete/{task_id}")	
-	public String deleteTaskById(@PathVariable String task_id) {
-		return taskService.deleteTaskById(Integer.parseInt(task_id));
+	@DeleteMapping("/delete/{user_id}")	
+	public String deleteUserById(@PathVariable String user_id) {
+		return userService.deleteUserById(Integer.parseInt(user_id));
 	}
 	
 	
 	@PutMapping(value="/update", consumes= {"application/json"}, produces= {"application/json"})	
-	public ResponseEntity<Task> updateTask(@RequestBody Task task) {
-		System.out.println("executing Update task-------------------->");
-		return ResponseEntity.ok(taskService.updateTask(task));
+	public ResponseEntity<User> updateUser(@RequestBody User user) {
+		System.out.println("executing Update user-------------------->");
+		return ResponseEntity.ok(userService.updateUser(user));
 	}
 }
+

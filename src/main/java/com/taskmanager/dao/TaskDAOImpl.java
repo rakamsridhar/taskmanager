@@ -18,7 +18,7 @@ public class TaskDAOImpl implements TaskDAO{
 
 	@Override
 	public List<Task> getTask() {
-		String sql = "select * from bookstore.book";
+		String sql = "select * from taskmanager.task";
 		List<Task> tasks = jdbcTemplate.query(sql, new TaskMapper());		
 		return tasks;
 	}
@@ -31,10 +31,11 @@ public class TaskDAOImpl implements TaskDAO{
 	}
 
 	@Override
-	public String addTask(Task task) {
+	public Task addTask(Task task) {
 		String sql = "insert into taskmanager.task values("+ task.getTask_id() + "," + task.getParent_id() + ",'" + task.getTask() + "','" +task.getStart_date() +"','"+ task.getEnd_date()+"'," +task.getPriority() +")";
+		//System.out.println("SQL String --------------> " + sql);
 		jdbcTemplate.execute(sql);
-		return "task added successfully";
+		return task;
 	}
 
 	@Override
@@ -45,10 +46,11 @@ public class TaskDAOImpl implements TaskDAO{
 	}
 
 	@Override
-	public String updateTask(Task task) {
+	public Task updateTask(Task task) {
 		String sql = "update taskmanager.task set parent_id=" + task.getParent_id() +", task='" + task.getTask() + "', start_date='" + task.getStart_date() + "', end_date='" + task.getEnd_date() + "', priority=" + task.getPriority() + " where task_id=" + task.getTask_id();
+		System.out.println("update SQL : " + sql);
 		jdbcTemplate.execute(sql);
-		return "Task updated successfully";
+		return task;
 	}
 
 }

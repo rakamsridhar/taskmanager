@@ -26,7 +26,7 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public String addTask(Task task) {		
+	public Task addTask(Task task) {		
 		return taskDao.addTask(task);
 		
 	}
@@ -37,7 +37,7 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public String updateTask(Task task) {		
+	public Task updateTask(Task task) {		
 		return taskDao.updateTask(task);
 	}
 	

@@ -2,35 +2,25 @@ package com.taskmanager.model;
 
 import java.sql.Date;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import org.springframework.stereotype.Component;
-
 @Component
-public class Task {
-	private int task_id;
-	private int parent_id;
-	private String task;
+public class Project {
+	private int project_id;	
+	private String project;
 	private Date start_date;
 	private Date end_date;
 	private int priority;
-	public int getTask_id() {
-		return task_id;
+	public int getProject_id() {
+		return project_id;
 	}
-	public void setTask_id(int task_id) {
-		this.task_id = task_id;
+	public void setProject_id(int project_id) {
+		this.project_id = project_id;
 	}
-	public int getParent_id() {
-		return parent_id;
+	public String getProject() {
+		return project;
 	}
-	public void setParent_id(int parent_id) {
-		this.parent_id = parent_id;
-	}
-	public String getTask() {
-		return task;
-	}
-	public void setTask(String task) {
-		this.task = task;
+	public void setProject(String project) {
+		this.project = project;
 	}
 	public Date getStart_date() {
 		return start_date;
@@ -50,16 +40,16 @@ public class Task {
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
-	public Task(int task_id, int parent_id, String task, Date start_date, Date end_date, int priority) {
+	public Project(int project_id, String project, Date start_date, Date end_date, int priority) {
 		super();
-		this.task_id = task_id;
-		this.parent_id = parent_id;
-		this.task = task;
+		this.project_id = project_id;
+		this.project = project;
 		this.start_date = start_date;
 		this.end_date = end_date;
 		this.priority = priority;
 	}
-	public Task() {
-
+	
+	public Project() {
+		
 	}
 }
