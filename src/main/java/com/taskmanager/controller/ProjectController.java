@@ -58,5 +58,10 @@ public class ProjectController {
 		System.out.println("executing Update project-------------------->");
 		return ResponseEntity.ok(projectService.updateProject(project));
 	}
+	
+	@GetMapping(value="/sort", produces= {"application/json"})	
+	public ResponseEntity<List<Project>> sortProjects(String name) {
+			return ResponseEntity.ok().body(projectService.sortProjects(name));
+	}
 
 }

@@ -41,4 +41,9 @@ public class ProjectServiceImpl implements ProjectService{
 		return projectDao.updateProject(project);
 	}
 
+	@Override
+	public List<Project> sortProjects(String name) {
+		return projectDao.sortProjects(name);		
+	}
+
 }

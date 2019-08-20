@@ -15,5 +15,6 @@ public interface ProjectService {
 	public Project addProject(Project project);
 	public String deleteProjectById(int project_id);
 	public Project updateProject(Project project);
+	public List<Project> sortProjects(String name);
 
 }

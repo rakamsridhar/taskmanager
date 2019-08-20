@@ -53,4 +53,11 @@ public class ProjectDAOImpl implements ProjectDAO{
 		return project;
 	}
 
+	@Override
+	public List<Project> sortProjects(String name) {
+		String sql = "select * from taskmanager.project order by " + name;
+		List<Project> projects = jdbcTemplate.query(sql, new ProjectMapper());		
+		return projects;
+	}
+
 }
