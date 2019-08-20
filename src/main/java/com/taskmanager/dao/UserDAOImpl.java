@@ -49,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User updateUser(User user) {
-		String sql = "update taskmanager.users set first_name='" + user.getFirst_name() + "', last_name='" + user.getLast_name() + "', project_id='" + user.getProject_id() + "', task_id=" + user.getTask_id() + " where user_id=" + user.getUser_id();
+		String sql = "update taskmanager.users set first_name='" + user.getFirst_name() + "', last_name='" + user.getLast_name() + "', employee_id='" + user.getEmployee_id() + "', project_id='" + user.getProject_id() + "', task_id=" + user.getTask_id() + " where user_id=" + user.getUser_id();
 		System.out.println("update SQL : " + sql);
 		jdbcTemplate.execute(sql);
 		return user;
