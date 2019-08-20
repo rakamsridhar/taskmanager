@@ -40,7 +40,6 @@ public class TaskServiceImpl implements TaskService {
 	public Task updateTask(Task task) {		
 		return taskDao.updateTask(task);
 	}
-	
-	
+
 
 }

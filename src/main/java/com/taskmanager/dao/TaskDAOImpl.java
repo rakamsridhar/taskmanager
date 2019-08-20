@@ -47,7 +47,7 @@ public class TaskDAOImpl implements TaskDAO{
 
 	@Override
 	public Task updateTask(Task task) {
-		String sql = "update taskmanager.task set parent_id=" + task.getParent_id() +", task='" + task.getTask() + "', start_date='" + task.getStart_date() + "', end_date='" + task.getEnd_date() + "', priority=" + task.getPriority() + " where task_id=" + task.getTask_id();
+		String sql = "update taskmanager.task set parent_id=" + task.getParent_id() +", task='" + task.getTask() + "', start_date='" + task.getStart_date() + "', end_date='" + task.getEnd_date() + "', priority=" + task.getPriority() + ", status='" + task.getStatus()+ "' where task_id=" + task.getTask_id();
 		System.out.println("update SQL : " + sql);
 		jdbcTemplate.execute(sql);
 		return task;

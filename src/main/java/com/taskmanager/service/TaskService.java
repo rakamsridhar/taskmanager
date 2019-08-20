@@ -12,6 +12,6 @@ public interface TaskService {
 	public Task getTaskById(int task_id);
 	public Task addTask(Task task);
 	public String deleteTaskById(int task_id);
-	public Task updateTask(Task task);
+	public Task updateTask(Task task);	
 	
 }
