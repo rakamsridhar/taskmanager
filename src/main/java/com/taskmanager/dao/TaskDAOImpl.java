@@ -32,7 +32,7 @@ public class TaskDAOImpl implements TaskDAO{
 
 	@Override
 	public Task addTask(Task task) {
-		String sql = "insert into taskmanager.task values("+ task.getTask_id() + "," + task.getParent_id() + ",'" + task.getTask() + "','" +task.getStart_date() +"','"+ task.getEnd_date()+"'," +task.getPriority() +")";
+		String sql = "insert into taskmanager.task values("+ task.getTask_id() + "," + task.getParent_id() + ",'" + task.getTask() + "','" +task.getStart_date() +"','"+ task.getEnd_date()+"'," +task.getPriority() +"," +task.getProject_id() +",'" +task.getStatus() +"')";
 		//System.out.println("SQL String --------------> " + sql);
 		jdbcTemplate.execute(sql);
 		return task;

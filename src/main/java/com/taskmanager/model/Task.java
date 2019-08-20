@@ -14,6 +14,20 @@ public class Task {
 	private Date start_date;
 	private Date end_date;
 	private int priority;
+	private int project_id;
+	private String status = "PENDING";
+	public int getProject_id() {
+		return project_id;
+	}
+	public void setProject_id(int project_id) {
+		this.project_id = project_id;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public int getTask_id() {
 		return task_id;
 	}
@@ -50,7 +64,9 @@ public class Task {
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
-	public Task(int task_id, int parent_id, String task, Date start_date, Date end_date, int priority) {
+
+	public Task(int task_id, int parent_id, String task, Date start_date, Date end_date, int priority, int project_id,
+			String status) {
 		super();
 		this.task_id = task_id;
 		this.parent_id = parent_id;
@@ -58,6 +74,8 @@ public class Task {
 		this.start_date = start_date;
 		this.end_date = end_date;
 		this.priority = priority;
+		this.project_id = project_id;
+		this.status = status;
 	}
 	public Task() {
 
