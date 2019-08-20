@@ -39,4 +39,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.updateUser(user);
 	}
 
+	@Override
+	public List<User> sortByName(String name) {		
+		return userDao.sortByName(name);
+	}
+
 }

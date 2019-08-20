@@ -55,4 +55,11 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	@Override
+	public List<User> sortByName(String name) {
+		String sql = "select * from taskmanager.users order by " +  name;
+		List<User> users = jdbcTemplate.query(sql, new UserMapper());		
+		return users;
+	}
+
 }

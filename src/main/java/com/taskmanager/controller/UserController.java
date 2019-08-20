@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -35,6 +36,11 @@ public class UserController {
 	@GetMapping(value="/all", produces= {"application/json"})	
 	public ResponseEntity<List<User>> getAllUsers() {
 			return ResponseEntity.ok().body(userService.getUser());
+	}
+	
+	@GetMapping(value="/sortByName", produces= {"application/json"})	
+	public ResponseEntity<List<User>> sortUsersByName(@RequestParam String name) {
+			return ResponseEntity.ok().body(userService.sortByName(name));
 	}
 	
 	@GetMapping("/{user_id}")	
