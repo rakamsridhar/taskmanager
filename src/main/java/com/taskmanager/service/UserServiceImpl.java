@@ -44,4 +44,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.sortByName(name);
 	}
 
+	@Override
+	public List<User> searchByName(String name) {
+		return userDao.searchByName(name);
+	}
+
 }

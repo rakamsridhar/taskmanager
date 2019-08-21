@@ -46,4 +46,9 @@ public class ProjectServiceImpl implements ProjectService{
 		return projectDao.sortProjects(name);		
 	}
 
+	@Override
+	public List<Project> searchByName(String name) {
+		return projectDao.searchByName(name);
+	}
+
 }

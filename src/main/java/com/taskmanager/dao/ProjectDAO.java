@@ -11,4 +11,5 @@ public interface ProjectDAO {
 	public String deleteProjectById(int project_id);
 	public Project updateProject(Project project);
 	public List<Project> sortProjects(String name);
+	public List<Project> searchByName(String name);
 }

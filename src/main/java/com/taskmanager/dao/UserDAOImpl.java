@@ -62,4 +62,11 @@ public class UserDAOImpl implements UserDAO {
 		return users;
 	}
 
+	@Override
+	public List<User> searchByName(String name) {
+		String sql = "select * from taskmanager.users where first_name like '%" +  name + "%' OR last_name like '%" + name + "%'";
+		List<User> users = jdbcTemplate.query(sql, new UserMapper());		
+		return users;
+	}
+
 }

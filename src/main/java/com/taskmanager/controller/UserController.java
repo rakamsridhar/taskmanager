@@ -66,5 +66,10 @@ public class UserController {
 		System.out.println("executing Update user-------------------->");
 		return ResponseEntity.ok(userService.updateUser(user));
 	}
+	
+	@GetMapping(value="/searchByName", produces= {"application/json"})	
+	public ResponseEntity<List<User>> searchByName(@RequestParam String name) {
+			return ResponseEntity.ok().body(userService.searchByName(name));
+	}
 }
 

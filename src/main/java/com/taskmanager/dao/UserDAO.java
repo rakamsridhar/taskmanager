@@ -12,5 +12,6 @@ public interface UserDAO {
 	public String deleteUserById(int user_id);
 	public User updateUser(User user);
 	public List<User> sortByName(String name);
+	public List<User> searchByName(String name);
 
 }

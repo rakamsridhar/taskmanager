@@ -60,4 +60,11 @@ public class ProjectDAOImpl implements ProjectDAO{
 		return projects;
 	}
 
+	@Override
+	public List<Project> searchByName(String name) {
+		String sql = "select * from taskmanager.project where project like '%" + name + "%'";
+		List<Project> projects = jdbcTemplate.query(sql, new ProjectMapper());		
+		return projects;
+	}
+
 }

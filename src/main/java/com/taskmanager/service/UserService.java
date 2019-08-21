@@ -14,6 +14,7 @@ public interface UserService {
 	public User addUser(User user);
 	public String deleteUserById(int user_id);
 	public User updateUser(User user);
+	public List<User> searchByName(String name);
 	
 	
 }

@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.taskmanager.model.Project;
+import com.taskmanager.model.User;
 import com.taskmanager.service.ProjectService;
 
 import io.swagger.annotations.Api;
@@ -62,6 +64,11 @@ public class ProjectController {
 	@GetMapping(value="/sort", produces= {"application/json"})	
 	public ResponseEntity<List<Project>> sortProjects(String name) {
 			return ResponseEntity.ok().body(projectService.sortProjects(name));
+	}
+	
+	@GetMapping(value="/searchByName", produces= {"application/json"})	
+	public ResponseEntity<List<Project>> searchByName(@RequestParam String name) {
+			return ResponseEntity.ok().body(projectService.searchByName(name));
 	}
 
 }
